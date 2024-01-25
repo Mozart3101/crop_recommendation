@@ -44,7 +44,7 @@ def predict_proba(n,p,k,temp,humi,ph,rain):
 
 
 def main():
-    b1, titl, b2 = st.beta_columns([1,5,1])
+    b1, titl, b2 = st.columns([1,5,1])
     titl.title('Crop Recommendation')
     st.sidebar.header('Enter the details')
     n = st.sidebar.number_input('Nitrogen(N) value in soil',value=1)
@@ -58,11 +58,11 @@ def main():
 
     if st.button('Predict'):
         prediction = predict(n,p,k,temp,humi,ph,rain)
-        b5, res, b6 = st.beta_columns([1,5,1])
+        b5, res, b6 = st.columns([1,5,1])
         res.header('Recommended Crop : {}'.format(prediction))
 
     if st.checkbox('Charts'):
-        b3, res, b4 = st.beta_columns([1,5,1])
+        b3, res, b4 = st.columns([1,5,1])
         st.header('Top 5 recommended Crops')
         pred1 = predict_proba(n,p,k,temp,humi,ph,rain)
         fig, axes = plt.subplots()
