@@ -58,10 +58,19 @@ def main():
         b3, res, b4 = st.columns([1, 5, 1])
         st.header('Top 5 recommended Crops')
         pred1 = predict_proba(n, p, k, temp, humi, ph, rain)
+        
+        # Set the default font size for the plot
+        plt.rcParams.update({'font.size': 10})
+        
         fig, axes = plt.subplots()
-        axes.pie(x=pred1, autopct='%1.1f%%', labels=pred1.index, explode=(0.1, 0, 0, 0, 0), shadow=True, startangle=90, fontsize=10)
+        axes.pie(x=pred1, autopct='%1.1f%%', labels=pred1.index, explode=(0.1, 0, 0, 0, 0), shadow=True, startangle=90)
         axes.legend(pred1.index, title="Crops", bbox_to_anchor=(1, 0.5), loc="center left")
         st.pyplot(fig)
+
+
+if __name__ == '__main__':
+    main()
+
 
 
 if __name__ == '__main__':
