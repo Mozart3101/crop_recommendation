@@ -56,9 +56,12 @@ def main():
         b3, res, b4 = st.columns([1,5,1])
         st.header('Top 5 recommended Crops')
         pred1 = predict_proba(n,p,k,temp,humi,ph,rain)
+        
+        # Use st.pyplot with clear_figure=True to clear previous plots
         fig, axes = plt.subplots()
         axes.pie(x=pred1,autopct='%1.1f%%',labels=pred1.index,explode=(0.1, 0, 0, 0, 0),shadow=True,startangle=90)
-        st.pyplot(fig)
+        st.pyplot(fig, clear_figure=True)
         
 if __name__=='__main__':
     main()
+
