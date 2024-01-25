@@ -59,7 +59,7 @@ def main():
         st.header('Top 5 recommended Crops')
         pred1 = predict_proba(n, p, k, temp, humi, ph, rain)
         fig, axes = plt.subplots()
-        axes.pie(x=pred1, autopct='%1.1f%%', labels=pred1.index, explode=(0.1, 0, 0, 0, 0), shadow=True, startangle=90)
+        axes.pie(x=pred1, autopct='%1.1f%%', labels=pred1.index, explode=(0.1, 0, 0, 0, 0), shadow=True, startangle=90, fontsize=10)
         axes.legend(pred1.index, title="Crops", bbox_to_anchor=(1, 0.5), loc="center left")
         st.pyplot(fig)
 
